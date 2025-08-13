@@ -17,3 +17,4 @@ transformers==4.30.0
 requests==2.31.0
 beautifulsoup4==4.12.2
 gunicorn==23.0.0
+tokenizers==0.19.2
