@@ -19,4 +19,4 @@ RUN pip install \
 RUN pip install --no-deps -r requirements.txt
 
 # أمر التشغيل الافتراضي
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]
