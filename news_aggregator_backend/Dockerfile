@@ -7,7 +7,7 @@ WORKDIR /app
 # نسخ ملفات المشروع
 COPY . /app
 
-# تحديث pip و تثبيت wheel و setuptools
+# تحديث pip وتثبيت wheel و setuptools
 RUN pip install --upgrade pip setuptools wheel
 
 # تثبيت نسخ متوافقة من transformers و tokenizers لتجنب Rust
@@ -18,5 +18,8 @@ RUN pip install \
 # تثبيت باقي المتطلبات من requirements.txt بدون tokenizers و transformers
 RUN pip install --no-deps -r requirements.txt
 
-# أمر التشغيل الافتراضي
-CMD ["python", "main.py"]
+# فتح البورت الذي يستخدمه Railway
+EXPOSE 8080
+
+# أمر التشغيل الافتراضي باستخدام Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "src.main:app"]
