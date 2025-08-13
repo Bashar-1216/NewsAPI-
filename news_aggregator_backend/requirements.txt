@@ -16,8 +16,7 @@ nltk==3.9.1
 scikit-learn==1.3.2
 textblob==0.17.1
 torch==2.2.0          # بدون +cpu لتجنب مشاكل التوافق
-transformers==4.29.2
-tokenizers==0.13.3
+
 # Utilities
 requests==2.31.0
 beautifulsoup4==4.12.2
