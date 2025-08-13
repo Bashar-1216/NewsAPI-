@@ -21,4 +21,4 @@ RUN pip install --no-deps -r requirements.txt
 # فتح البورت الذي يستخدمه التطبيق داخليًا
 EXPOSE 8080
 
-CMD ["python", "src.main:app"]
+CMD ["python", "main:app"]
