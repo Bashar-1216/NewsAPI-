@@ -7,17 +7,18 @@ WORKDIR /app
 # نسخ ملفات المشروع
 COPY . /app
 
-# تحديث pip وتثبيت wheel و setuptools
+# تحديث pip و wheel و setuptools
 RUN pip install --upgrade pip setuptools wheel
 
-# تثبيت نسخ متوافقة من transformers و tokenizers لتجنب Rust
-RUN pip install \
-    tokenizers==0.13.3 \
-    transformers==4.29.2
+# تثبيت الأدوات اللازمة لتثبيت scipy و scikit-learn على slim image
+RUN apt-get update && apt-get install -y build-essential gfortran libopenblas-dev liblapack-dev
 
-# تثبيت باقي المتطلبات من requirements.txt بدون tokenizers و transformers
-RUN pip install --no-deps -r requirements.txt
+# تثبيت المكتبات الثقيلة أولًا لتجنب مشاكل البناء
+RUN pip install scipy scikit-learn torch
 
+# تثبيت باقي المكتبات من requirements.txt
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 # فتح البورت الذي يستخدمه التطبيق داخليًا
 EXPOSE 8080
 
