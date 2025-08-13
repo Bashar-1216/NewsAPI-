@@ -11,12 +11,14 @@ COPY . /app
 RUN pip install --upgrade pip setuptools wheel
 
 # تثبيت الحزم الكبيرة أولًا لتجنب مشاكل Rust
+# تثبيت الحزم الكبيرة أولًا لتجنب مشاكل Rust
 RUN pip install \
     torch==2.2.0 \
     scikit-learn==1.3.2 \
-    scipy==1.12.1 \
+    scipy==1.11.3 \
     transformers==4.29.2 \
     tokenizers==0.13.3
+
 
 # تثبيت باقي الحزم من requirements.txt بدون إعادة تثبيت الحزم السابقة
 RUN pip install --no-deps -r requirements.txt
