@@ -21,5 +21,4 @@ RUN pip install --no-deps -r requirements.txt
 # فتح البورت الذي يستخدمه التطبيق داخليًا
 EXPOSE 8080
 
-# أمر التشغيل الافتراضي باستخدام Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "src.main:app"]
+CMD ["python", "src.main:app"]
