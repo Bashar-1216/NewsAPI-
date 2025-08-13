@@ -61,8 +61,10 @@ def serve_static_files(path):
         # For client-side routing, return index.html
         return app.send_static_file('index.html')
 
-if __name__ == '__main__':
-    
-    port = int(os.environ.get("PORT", 5000))  # يستخدم PORT من البيئة، 5000 كافتراضي محليًا
-    app.run(host='0.0.0.0', port=port, debug=True)
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # استخدام PORT من البيئة
+    app.run(host="0.0.0.0", port=port, debug=True)
+
 
