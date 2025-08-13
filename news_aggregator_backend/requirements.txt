@@ -1,3 +1,4 @@
+# Backend packages
 blinker==1.9.0
 click==8.2.1
 Flask==3.1.1
@@ -9,12 +10,16 @@ MarkupSafe==3.0.2
 SQLAlchemy==2.0.41
 typing_extensions==4.14.0
 Werkzeug==3.1.3
+
+# NLP & ML packages
 nltk==3.9.1
 scikit-learn==1.3.2
 textblob==0.17.1
-torch==2.2.0
-transformers==4.30.0
+torch==2.2.0          # بدون +cpu لتجنب مشاكل التوافق
+transformers==4.30.0  # نسخة حديثة مع tokenizers مدمجة
+tokenizers==0.19.2    # نسخة مسبقة البناء لتجنب الحاجة لـ Rust
+
+# Utilities
 requests==2.31.0
 beautifulsoup4==4.12.2
 gunicorn==23.0.0
-tokenizers==0.19.2
