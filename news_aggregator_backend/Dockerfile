@@ -7,19 +7,21 @@ WORKDIR /app
 # نسخ ملفات المشروع
 COPY . /app
 
-# تحديث pip و wheel و setuptools
+# تحديث pip وتثبيت wheel و setuptools
 RUN pip install --upgrade pip setuptools wheel
 
-# تثبيت الأدوات اللازمة لتثبيت scipy و scikit-learn على slim image
-RUN apt-get update && apt-get install -y build-essential gfortran libopenblas-dev liblapack-dev
+# تثبيت الحزم الكبيرة أولًا لتجنب مشاكل Rust
+RUN pip install \
+    torch==2.2.0 \
+    scikit-learn==1.3.2 \
+    scipy==1.12.1 \
+    transformers==4.29.2 \
+    tokenizers==0.13.3
 
-# تثبيت المكتبات الثقيلة أولًا لتجنب مشاكل البناء
-RUN pip install scipy scikit-learn torch
+# تثبيت باقي الحزم من requirements.txt بدون إعادة تثبيت الحزم السابقة
+RUN pip install --no-deps -r requirements.txt
 
-# تثبيت باقي المكتبات من requirements.txt
-COPY requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-# فتح البورت الذي يستخدمه التطبيق داخليًا
+# فتح البورت الذي يستخدمه Railway
 EXPOSE 8080
 
 CMD ["python", "src/main.py"]
