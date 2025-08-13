@@ -1,4 +1,4 @@
-# استخدم صورة Python 3.11
+# استخدم صورة Python 3.11 خفيفة
 FROM python:3.11-slim
 
 # إعداد مجلد العمل
@@ -18,7 +18,7 @@ RUN pip install \
 # تثبيت باقي المتطلبات من requirements.txt بدون tokenizers و transformers
 RUN pip install --no-deps -r requirements.txt
 
-# فتح البورت الذي يستخدمه Railway
+# فتح البورت الذي يستخدمه التطبيق داخليًا
 EXPOSE 8080
 
 # أمر التشغيل الافتراضي باستخدام Gunicorn
