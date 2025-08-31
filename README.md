@@ -1,17 +1,6 @@
 
 
----
 
-```markdown
-# 📰 NewsAI - نظام ذكي لجمع وتحليل الأخبار
-
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-Backend-black?logo=flask)](https://flask.palletsprojects.com/)
-[![React](https://img.shields.io/badge/React-Frontend-61dafb?logo=react)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-Design-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
-
-**NewsAI** هو نظام متكامل يجمع الأخبار من مصادر متعددة ويحللها باستخدام تقنيات الذكاء الاصطناعي ومعالجة اللغات الطبيعية **(NLP)**، ليقدم تجربة قراءة مخصصة وذكية.
 
 ---
 
@@ -136,8 +125,6 @@ pnpm run dev --host
 
 ---
 
-
----
 
 
 ---
